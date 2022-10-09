@@ -1,12 +1,9 @@
 import type * as Stitches from "@stitches/react";
 import { styled } from "@stitches/react";
-import { FunctionComponent } from "preact";
 import { ContentContainerProps, GridContainerProps } from "./types";
 
 const Wrapper = styled("div", {
   display: "grid",
-  width: "100px",
-  height: "100px",
   variants: {
     column: {
       2: {
@@ -35,27 +32,50 @@ const Wrapper = styled("div", {
         gridAutoFlow: "column",
       },
     },
+    wrap: {
+      auto: {
+        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+      },
+    },
+    justify: {
+      center: { justifyContent: "center" },
+    },
+    items: {
+      center: {
+        alignItems: "center",
+      },
+    },
   },
 });
 
 const ContentBlock = styled("div", {
   width: "100%",
   height: "100%",
-  background: "blue",
+  variants: {
+    display: {
+      flex: {
+        display: "flex",
+      },
+    },
+    items: {
+      center: {
+        alignItems: "center",
+      },
+    },
+  },
 });
 
-export module Grid {
-  export const Container: FunctionComponent<
-    GridContainerProps<Stitches.VariantProps<typeof Wrapper>>
-  > = ({ children, ...args }) => {
-    return <Wrapper {...args}>{children}</Wrapper>;
-  };
+export const Grid = ({
+  children,
+  ...args
+}: GridContainerProps<Stitches.VariantProps<typeof Wrapper>>) => {
+  return <Wrapper {...args}>{children}</Wrapper>;
+};
 
-  export const Content: FunctionComponent<
-    ContentContainerProps & { css?: Stitches.CSS }
-  > = ({ xs, md, ...args }) => {
-    return <ContentBlock {...args}></ContentBlock>;
-  };
-
-  Content.displayName = "content";
-}
+Grid.Content = ({
+  xs,
+  md,
+  ...args
+}: ContentContainerProps<Stitches.VariantProps<typeof ContentBlock>>) => {
+  return <ContentBlock {...args}></ContentBlock>;
+};

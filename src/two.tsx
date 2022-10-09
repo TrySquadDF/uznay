@@ -1,6 +1,5 @@
-import "./app.css";
 import { Layout } from "./components/Layout";
 
-export function App() {
+export function Two() {
   return <Layout></Layout>;
 }

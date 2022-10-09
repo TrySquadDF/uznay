@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@stitches/react": "^1.2.8",
-    "preact": "^10.10.6"
+    "preact": "^10.10.6",
+    "react-router-dom": "^6.4.2"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.3.0",
