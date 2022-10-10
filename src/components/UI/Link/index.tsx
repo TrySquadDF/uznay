@@ -1,5 +1,5 @@
-import { styled } from "@stitches/react";
-import { FunctionComponent } from "preact";
+import { CSS, styled } from "@stitches/react";
+import { FunctionComponent, JSX } from "preact";
 import { NavLink } from "react-router-dom";
 
 type NavLinkProps =
@@ -13,13 +13,17 @@ const TypesNavLink = NavLink as FunctionComponent<{
 }>;
 
 const LinkStyle = styled("span", {
+  background: "rgba(25, 100, 231,0)",
   color: "var(--primary-color)",
   padding: "7px 12px",
   borderRadius: "5px",
+  fontFamily: "Segoe UI",
+  fontWeight: "500",
+  margin: "0 5px",
   variants: {
     fill: {
       primary: {
-        transition: "0.1s all",
+        transition: "background 0.1s ease-in-out",
         background: "rgba(25, 100, 231,0.03)",
       },
     },
@@ -30,6 +34,12 @@ const LinkStyle = styled("span", {
     },
   },
 });
+
+const hoverStyle: CSS = {
+  "&:hover": {
+    backgroundColor: "rgba(0, 0, 0,0.01)",
+  },
+};
 
 export const Link: FunctionComponent<{
   to: string;
@@ -46,7 +56,12 @@ export const Link: FunctionComponent<{
     >
       {({ isActive }: { isActive: boolean }) => {
         return (
-          <LinkStyle fill={isActive ? "primary" : undefined}>{lable}</LinkStyle>
+          <LinkStyle
+            fill={isActive ? "primary" : undefined}
+            css={isActive ? undefined : hoverStyle} // todo: create disable styles
+          >
+            {lable}
+          </LinkStyle>
         );
       }}
     </TypesNavLink>
