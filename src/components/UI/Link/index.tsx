@@ -37,8 +37,13 @@ const LinkStyle = styled("span", {
 
 const hoverStyle: CSS = {
   "&:hover": {
+    transition: "background 0.2s ease-in-out",
     backgroundColor: "rgba(0, 0, 0,0.01)",
   },
+};
+
+const disableStyle: CSS = {
+  cursor: "default",
 };
 
 export const Link: FunctionComponent<{
@@ -58,7 +63,7 @@ export const Link: FunctionComponent<{
         return (
           <LinkStyle
             fill={isActive ? "primary" : undefined}
-            css={isActive ? undefined : hoverStyle} // todo: create disable styles
+            css={isActive ? disableStyle : hoverStyle}
           >
             {lable}
           </LinkStyle>
