@@ -11,7 +11,8 @@
   "dependencies": {
     "@stitches/react": "^1.2.8",
     "preact": "^10.10.6",
-    "react-router-dom": "^6.4.2"
+    "react-router-dom": "^6.4.2",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.3.0",

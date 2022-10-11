@@ -5,7 +5,11 @@ import { Link } from "../UI/Link";
 const routeItems = [
   {
     path: "/",
-    title: "Главная",
+    title: "Все",
+  },
+  {
+    path: "/top-headlines",
+    title: "Главное",
   },
 ];
 
@@ -16,15 +20,16 @@ export const Header = ({}) => {
         css={{
           height: "4rem",
           gridTemplateColumns: "200px",
-          outline: "1px solid var(--gray-color)",
+          borderBottom: "1px solid var(--gray-color)",
         }}
         flow="column"
         items="center"
       >
         <Grid.Content children={<Logo />} />
         <Grid.Content display="flex" items="center">
-          <Link to="/" lable="Главная" />
-          <Link to="/two" lable="Two"></Link>
+          {routeItems.map(({ path, title }) => (
+            <Link to={path} lable={title} key={title} />
+          ))}
         </Grid.Content>
       </Grid>
     </header>

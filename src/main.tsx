@@ -1,17 +1,24 @@
 import { render } from "preact";
+import { App } from "./page/app";
+import { Root } from "./page/root";
+import { TopHeadlines } from "./page/topheadlines";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Two } from "./two";
-import { App } from "./app";
-import "./index.css";
+import "./index.scss";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-  },
-  {
-    path: "/two",
-    element: <Two />,
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/top-headlines",
+        element: <TopHeadlines />,
+      },
+    ],
   },
 ]);
 
