@@ -1,6 +1,6 @@
 import { Layout } from "../components/Layout";
-import { FunctionComponent } from "preact";
 import { Outlet } from "react-router-dom";
+import { FunctionComponent } from "preact";
 
 export const Root: FunctionComponent = () => {
   return (

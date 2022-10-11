@@ -1,3 +1,4 @@
+import { styled } from "@stitches/react";
 import { Grid } from "../Grid";
 import { Logo } from "../Logo";
 import { Link } from "../UI/Link";
@@ -13,14 +14,21 @@ const routeItems = [
   },
 ];
 
+const SemanticWrapper = styled("header", {
+  top: "0",
+  position: "sticky",
+});
+
 export const Header = ({}) => {
   return (
-    <header>
+    <SemanticWrapper>
       <Grid
         css={{
           height: "4rem",
           gridTemplateColumns: "200px",
+          background: "white",
           borderBottom: "1px solid var(--gray-color)",
+          overflow: "auto",
         }}
         flow="column"
         items="center"
@@ -32,6 +40,6 @@ export const Header = ({}) => {
           ))}
         </Grid.Content>
       </Grid>
-    </header>
+    </SemanticWrapper>
   );
 };

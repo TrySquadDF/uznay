@@ -1,6 +1,6 @@
-import type * as Stitches from "@stitches/react";
-import { styled } from "@stitches/react";
 import { ContentContainerProps, GridContainerProps } from "./types";
+import { styled } from "../UI/stitches.config";
+import type * as Stitches from "@stitches/react";
 
 const Wrapper = styled("div", {
   display: "grid",
