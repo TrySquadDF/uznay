@@ -1,21 +1,17 @@
-import { MainGrid } from "../components/Grid/Catalog";
+import { Grid } from "@/components/Grid";
+import { MainGrid } from "@/components/Grid/Catalog";
+
 export function App() {
   return (
     <MainGrid>
-      <div
-        style={{
-          width: "100%",
-          hedigh: "100%",
-          background: "blue",
+      <Grid.Content
+        css={{
+          "@mobile": {
+            gridRowStart: "-1",
+          },
         }}
-      ></div>
-      <div
-        style={{
-          width: "100%",
-          hedigh: "100%",
-          background: "red",
-        }}
-      ></div>
+      ></Grid.Content>
+      <Grid.Content></Grid.Content>
     </MainGrid>
   );
 }

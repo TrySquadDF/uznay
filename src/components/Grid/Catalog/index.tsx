@@ -1,4 +1,4 @@
-import { styled } from "../../UI/stitches.config";
+import { styled } from "@/components/UI/stitches.config";
 
 export const MainGrid = styled("div", {
   display: "grid",
