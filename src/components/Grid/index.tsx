@@ -1,6 +1,7 @@
 import { ContentContainerProps, GridContainerProps } from "./types";
 import { styled } from "../UI/stitches.config";
 import type * as Stitches from "@stitches/react";
+import { PropsReactCSSVariant } from "@/types/componentsTypes";
 
 const Wrapper = styled("div", {
   display: "grid",
@@ -68,7 +69,7 @@ const ContentBlock = styled("div", {
 export const Grid = ({
   children,
   ...args
-}: GridContainerProps<Stitches.VariantProps<typeof Wrapper>>) => {
+}: PropsReactCSSVariant<typeof Wrapper>) => {
   return <Wrapper {...args}>{children}</Wrapper>;
 };
 

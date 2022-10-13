@@ -14,16 +14,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment",
+    "jsx": "react-jsx",
     "baseUrl": ".",
-    "incremental": true,
     "paths": {
-      "@/components/*": ["src/components/*" ]
+      "@/components/*": ["src/components/*"],
+      "@/types/*": ["src/types/*"],
+      "@/hooks/*": ["src/components/*"],
+      "@/page/*": ["src/page/*"],
+      "@/UI/*": ["src/UI/*" ],
     }
   },
-  "include": ["src" , "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

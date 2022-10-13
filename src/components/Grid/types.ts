@@ -1,21 +1,13 @@
-import type * as Stitches from "@stitches/react";
-import { ComponentChildren } from "preact";
-
-export interface CssProperty {
-  css?: Stitches.CSS;
-}
-
-export interface PropsWhithChildren {
-  children?: ComponentChildren;
-}
+import { CssProperty } from "@/types/componentsTypes";
+import { PropsWithChildren } from "react";
 
 export type GridContainerProps<T = {}> = {} & CssProperty &
-  PropsWhithChildren &
+  PropsWithChildren &
   T;
 
 export type ContentContainerProps<T = {}> = {
   xs?: number;
   md?: number;
-} & PropsWhithChildren &
+} & PropsWithChildren &
   CssProperty &
   T;

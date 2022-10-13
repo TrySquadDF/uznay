@@ -1,9 +1,12 @@
-import { render } from "preact";
-import { App } from "./page/app";
+import ReactDOM from "react-dom/client";
+import store from "./models/store";
+import App from "./page/app";
 import { Root } from "./page/root";
 import { TopHeadlines } from "./page/topheadlines";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.scss";
+import { createContext } from "react";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +25,11 @@ const router = createBrowserRouter([
   },
 ]);
 
-render(
-  <RouterProvider router={router} />,
-  document.getElementById("app") as HTMLElement
+const model = store.create();
+export const StoreContext = createContext(model);
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <StoreContext.Provider value={model}>
+    <RouterProvider router={router} />
+  </StoreContext.Provider>
 );

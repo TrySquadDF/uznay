@@ -1,16 +1,7 @@
 import { CSS, styled } from "@stitches/react";
-import { FunctionComponent, JSX } from "preact";
+import { FunctionComponent } from "react";
+
 import { NavLink } from "react-router-dom";
-
-type NavLinkProps =
-  | (({ isActive }: { isActive: boolean }) => JSX.CSSProperties | undefined)
-  | JSX.CSSProperties;
-
-const TypesNavLink = NavLink as FunctionComponent<{
-  to: string;
-  style?: NavLinkProps;
-  end?: boolean;
-}>;
 
 const LinkStyle = styled("span", {
   background: "rgba(25, 100, 231,0)",
@@ -52,7 +43,7 @@ export const Link: FunctionComponent<{
   end?: boolean;
 }> = ({ to, lable, end = true }) => {
   return (
-    <TypesNavLink
+    <NavLink
       to={to}
       style={{
         textDecoration: "none",
@@ -69,6 +60,6 @@ export const Link: FunctionComponent<{
           </LinkStyle>
         );
       }}
-    </TypesNavLink>
+    </NavLink>
   );
 };

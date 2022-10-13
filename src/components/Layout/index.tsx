@@ -1,7 +1,7 @@
-import { FunctionComponent } from "preact";
+import { FC, PropsWithChildren } from "react";
 import { Header } from "../Header";
 
-export const Layout: FunctionComponent = ({ children }) => {
+export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Header />
