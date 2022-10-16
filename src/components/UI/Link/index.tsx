@@ -1,6 +1,5 @@
+import React, { FunctionComponent } from "react";
 import { CSS, styled } from "@stitches/react";
-import { FunctionComponent } from "react";
-
 import { NavLink } from "react-router-dom";
 
 const LinkStyle = styled("span", {
