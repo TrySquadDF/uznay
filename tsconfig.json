@@ -21,6 +21,7 @@
       "@/types/*": ["src/types/*"],
       "@/hooks/*": ["src/components/*"],
       "@/page/*": ["src/page/*"],
+      "@/utils/*" : ["src/utils/*"],
       "@/UI/*": ["src/UI/*" ],
     }
   },

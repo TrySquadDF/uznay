@@ -1,6 +1,6 @@
+import { parameterAssembly } from "@/utils/parameterAssembly/parameterAssembly";
+import { ResponsError, toServer } from "@/types/responsTypes";
 import { flow, types } from "mobx-state-tree";
-import { ResponsError, toServer } from "src/types/responsTypes";
-import { parameterAssembly } from "src/utils/parameterAssembly";
 import { apiResult, apiError } from "./apiModels";
 
 const fetchArticlesToServer: toServer = async ({
