@@ -48,6 +48,7 @@ export const Link: FunctionComponent<{
         textDecoration: "none",
       }}
       end={end}
+      data-testid={"link"}
     >
       {({ isActive }: { isActive: boolean }) => {
         return (
