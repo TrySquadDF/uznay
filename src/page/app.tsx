@@ -3,15 +3,13 @@ import { Grid } from "@/components/Grid";
 import { MainGrid } from "@/components/Grid/Catalog";
 import { NewsList } from "@/components/NewsList";
 import useStore from "src/hooks/useStore";
-import { apiGenerator } from "@/utils/apiGenerator/apigenerator";
+import { getDataFromServer } from "@/utils/serverRequest/serverRequest";
+import { useEffect } from "react";
 
 function App() {
   const { API, APIV } = useStore();
 
-  const { url } = new apiGenerator("/v2/everything", {
-    q: "",
-  });
-  console.log(url);
+  console.log(API, APIV);
 
   return (
     <MainGrid>

@@ -23,7 +23,10 @@ export class apiGenerator {
   );
   constructor(
     header: location,
-    option: Partial<topHeadlinesQuery> | Partial<everythingQuery>
+    option:
+      | Partial<topHeadlinesQuery>
+      | ({ q: string } & Partial<everythingQuery>)
+      | Partial<topHeadlinesSourcesQuery>
   ) {
     this.url = null;
 
@@ -59,15 +62,15 @@ export class apiGenerator {
 
   everything(header: everything, { ...option }) {
     const { q } = option as { q: string } & Partial<everythingQuery>;
-    if (!Boolean(q.trim())) option = { q: "Russian" };
+    if (!Boolean(q.trim())) option.q = "Russian"; // Значение по умолчанию
     this.url = `${header}?${this.assembler(this.optionsHandler(option))}`;
-  } // удалить
+  }
 
   topheadlines(header: topHeadlines, { ...option }) {
     if (JSON.stringify(option) === "{}")
       option = {
         country: "ru",
-      } as Partial<topHeadlinesQuery>;
+      } as Partial<topHeadlinesQuery>; // Значение по умолчанию
     this.url = `${header}?${this.assembler(this.optionsHandler(option))}`;
   }
 }

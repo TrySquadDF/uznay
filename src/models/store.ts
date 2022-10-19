@@ -10,7 +10,7 @@ const store = types
     init: () => {},
     afterCreate() {
       self.API.init();
-      self.APIV.init({ country: "ru" });
+      self.APIV.init("/v2/top-headlines", { country: "de" });
     },
   }));
 
