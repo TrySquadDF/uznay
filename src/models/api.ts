@@ -1,5 +1,10 @@
 import { parameterAssembly } from "@/utils/parameterAssembly/parameterAssembly";
-import { ResponsError, toServer } from "@/types/responsTypes";
+import {
+  query,
+  ResponsError,
+  topHeadlinesQuery,
+  toServer,
+} from "@/types/responsTypes";
 import { flow, types } from "mobx-state-tree";
 import { apiResult, apiError } from "./apiModels";
 
@@ -36,10 +41,12 @@ const API = types
     result: types.maybe(apiResult),
   })
   .actions((self) => ({
-    init: flow(function* fetchArticles() {
+    init: flow(function* fetchArticles(
+      args: Partial<topHeadlinesQuery> | undefined = {}
+    ) {
       try {
         self.loading = true;
-        const data = yield fetchArticlesToServer({});
+        const data = yield fetchArticlesToServer(args);
         self.result = { ...data };
         self.loading = false;
       } catch (e) {
@@ -47,10 +54,6 @@ const API = types
         self.error = { ...(e as ResponsError) };
       }
     }),
-    afterCreate() {
-      //@ts-ignore
-      self.init();
-    },
   }));
 
 export default API;

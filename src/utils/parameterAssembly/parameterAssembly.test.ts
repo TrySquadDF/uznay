@@ -1,5 +1,4 @@
 import { query } from "@/types/responsTypes";
-import { describe, test, expect } from "vitest";
 import { parameterAssembly } from "./parameterAssembly";
 
 const params: Partial<query> = {
@@ -12,3 +11,5 @@ describe("Составление запроса к API", () => {
     expect(parameterAssembly(params)).toBe("/v2/top-headlines?country=ru");
   });
 });
+
+//TODO: удалить тест и функцию

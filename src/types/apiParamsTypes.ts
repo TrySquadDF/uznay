@@ -1,7 +1,10 @@
-export type location =
-  | "/v2/everything"
-  | "/v2/top-headlines"
-  | "/v2/top-headlines/sources";
+export type location = everything | topHeadlines | topHeadlinesSources;
+
+export type everything = "/v2/everything";
+
+export type topHeadlines = "/v2/top-headlines";
+
+export type topHeadlinesSources = "/v2/top-headlines/sources";
 
 export type country =
   | "ae"
@@ -59,6 +62,22 @@ export type country =
   | "ve"
   | "za";
 
+export type language =
+  | "ar"
+  | "de"
+  | "en"
+  | "es"
+  | "fr"
+  | "he"
+  | "it"
+  | "nl"
+  | "no"
+  | "pt"
+  | "ru"
+  | "sv"
+  | "ud"
+  | "zh";
+
 export type category =
   | "business"
   | "entertainment"
@@ -67,6 +86,8 @@ export type category =
   | "science"
   | "sports"
   | "technology";
+
+export type sortBy = "relevancy" | "popularity" | "publishedAt";
 
 export type sources = string; // you can't mix this param with the country or category params.
 

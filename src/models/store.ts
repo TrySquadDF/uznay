@@ -4,7 +4,14 @@ import API from "./api";
 const store = types
   .model({
     API: types.optional(API, {}),
+    APIV: types.optional(API, {}),
   })
-  .actions(() => ({}));
+  .actions((self) => ({
+    init: () => {},
+    afterCreate() {
+      self.API.init();
+      self.APIV.init({ country: "ru" });
+    },
+  }));
 
 export default store;

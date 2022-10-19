@@ -1,4 +1,12 @@
-import { category, country, location, q, sources } from "./apiParamsTypes";
+import {
+  category,
+  country,
+  language,
+  location,
+  q,
+  sortBy,
+  sources,
+} from "./apiParamsTypes";
 
 export interface ResponsError {
   code: string;
@@ -6,13 +14,28 @@ export interface ResponsError {
   message: string;
 }
 
-export type query = {
-  location: location;
+export type topHeadlinesSourcesQuery = {
+  country: country;
+  language: language;
+  category: category;
+};
+
+export type topHeadlinesQuery = {
   country: country;
   category: category;
-  sources: sources;
+  location: "/v2/top-headlines";
+} & query;
+
+export type everythingQuery = {
+  language: language;
+  sortBy: sortBy;
+} & query;
+
+export type query = {
   q: q;
+  sources: sources;
   pageSize: number;
   page: number;
 };
-export type toServer = (prams: Partial<query>) => Promise<any>;
+
+export type toServer = (prams: Partial<topHeadlinesQuery>) => Promise<any>;

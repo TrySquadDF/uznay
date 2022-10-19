@@ -3,10 +3,15 @@ import { Grid } from "@/components/Grid";
 import { MainGrid } from "@/components/Grid/Catalog";
 import { NewsList } from "@/components/NewsList";
 import useStore from "src/hooks/useStore";
-import { Link } from "react-router-dom";
+import { apiGenerator } from "@/utils/apiGenerator/apigenerator";
 
 function App() {
-  const { API } = useStore();
+  const { API, APIV } = useStore();
+
+  const { url } = new apiGenerator("/v2/everything", {
+    q: "",
+  });
+  console.log(url);
 
   return (
     <MainGrid>
@@ -21,7 +26,7 @@ function App() {
         <NewsList>
           {API.result?.articles.map((el) => {
             return (
-              <NewsList.Items>
+              <NewsList.Items key={el.publishedAt + el.author}>
                 <NewsList.To href={el.url}>
                   <span>
                     {new Date(el.publishedAt).toLocaleTimeString([], {
@@ -36,9 +41,7 @@ function App() {
           })}
         </NewsList>
       </Grid.Content>
-      <Grid.Content>
-        <div></div>
-      </Grid.Content>
+      <Grid.Content></Grid.Content>
     </MainGrid>
   );
 }

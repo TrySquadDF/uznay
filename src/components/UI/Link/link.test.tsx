@@ -1,10 +1,11 @@
-import "@testing-library/jest-dom";
-import { act, render, screen, userEvent } from "../../../utils/test-utils";
-import { describe, test, vi } from "vitest";
+import React from "react";
+import { render } from "../../../utils/test-utils";
+import { vi } from "vitest";
 import { Link } from ".";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import React from "react";
+
+import "@testing-library/jest-dom";
 
 describe("Link", async () => {
   it("Должен перенаправить на необходимую страницу", () => {
