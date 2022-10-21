@@ -8,14 +8,14 @@ const Wrapper = styled("ul", {
   padding: 0,
 });
 
-export const NewsList = ({
+export const List = ({
   children,
   ...args
 }: PropsReactCSSVariant<typeof Wrapper>) => {
   return <Wrapper {...args}>{children}</Wrapper>;
 };
 
-NewsList.Items = styled("li", {
+List.Items = styled("li", {
   listStyleType: "none",
   fontSize: "14px",
   padding: "10px 20px",
@@ -27,7 +27,7 @@ NewsList.Items = styled("li", {
   },
 });
 
-NewsList.To = styled("a", {
+List.To = styled("a", {
   textDecoration: "none",
   color: "black",
   "&:hover": {

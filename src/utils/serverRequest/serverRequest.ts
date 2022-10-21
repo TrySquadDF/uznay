@@ -12,28 +12,6 @@ import {
 } from "@/types/responsTypes";
 import { apiGenerator } from "../apiGenerator/apigenerator";
 
-// const fetchArticlesToServer: d | c | a = async (type: "/v2/top-headlines") => {
-//   return fetch(
-//     `${import.meta.env.VITE_API_URL}${parameterAssembly({
-//       country,
-//       location,
-//       ...args,
-//     })}&apiKey=${import.meta.env.VITE_API_KEY}`
-//   )
-//     .then((e) => {
-//       if (e.ok) {
-//         return e.json();
-//       } else {
-//         throw e;
-//       }
-//     })
-//     .catch(async (e) => {
-//       return await e.json().then((e: ResponsError) => {
-//         throw e;
-//       });
-//     });
-// };
-
 export class getDataFromServer {
   public req!: Promise<any>;
 

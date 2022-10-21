@@ -8,10 +8,10 @@ const source = types.model("source", {
 const article = types.model("article", {
   source,
   author: types.maybeNull(types.string),
-  title: types.maybeNull(types.string),
+  title: types.string,
   description: types.maybeNull(types.string),
   url: types.string,
-  urlToImage: types.maybeNull(types.string),
+  urlToImage: types.maybeNull(types.string), // (types.string)
   publishedAt: types.string,
   content: types.maybeNull(types.string),
 });

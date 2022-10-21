@@ -73,10 +73,6 @@ export const Grid = ({
   return <Wrapper {...args}>{children}</Wrapper>;
 };
 
-Grid.Content = ({
-  xs,
-  md,
-  ...args
-}: ContentContainerProps<Stitches.VariantProps<typeof ContentBlock>>) => {
+Grid.Content = ({ ...args }: PropsReactCSSVariant<typeof ContentBlock>) => {
   return <ContentBlock {...args}></ContentBlock>;
 };
