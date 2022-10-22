@@ -26,6 +26,8 @@ const fetchArticlesToServer = async (
   }
 };
 
+// TODO: test api error
+
 const API = types
   .model("API", {
     loading: false,
@@ -37,7 +39,8 @@ const API = types
       type: topHeadlines | everything = "/v2/top-headlines",
       args?:
         | Partial<topHeadlinesQuery>
-        | ({ q: string } & Partial<everythingQuery>)
+        | ({ q: string } & Partial<everythingQuery>),
+      callback?: (data: any[]) => void
     ) {
       try {
         let option:
@@ -52,7 +55,7 @@ const API = types
         self.loading = true;
         // @ts-ignore
         const data = yield fetchArticlesToServer(type, option);
-        self.result = { ...data };
+        self.result = callback ? callback({ ...data }) : { ...data };
         self.loading = false;
       } catch (e) {
         self.loading = false;

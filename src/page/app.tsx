@@ -1,9 +1,11 @@
 import { observer } from "mobx-react-lite";
 import { Grid } from "@/components/Grid";
 import { MainGrid } from "@/components/Grid/Catalog";
-import useStore from "src/hooks/useStore";
-import NewsList from "@/components/List/NewsList/NewsList";
+
+import NewsList from "@/components/List/components/NewsList/NewsList";
 import MainInnerBlock from "@/components/MainInnerBlock";
+
+import useStore from "src/hooks/useStore";
 
 function App() {
   const { API, APIV } = useStore(); // todo: del >> sddsds --- string and onChange event

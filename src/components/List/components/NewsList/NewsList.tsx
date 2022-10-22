@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { memo } from "react";
-import { List } from "..";
+import { List } from "../..";
 
 import useStore from "src/hooks/useStore";
 

@@ -13,7 +13,13 @@ export const Card: FC<CardProps> = ({ img, title, to }) => {
   return (
     <To href={to}>
       <Image src={img}></Image>
-      <Heading>{title}</Heading>
+      <Heading
+        css={{
+          padding: "10px 0",
+        }}
+      >
+        {title}
+      </Heading>
     </To>
   );
 };

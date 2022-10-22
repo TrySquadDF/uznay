@@ -12,6 +12,7 @@
   "dependencies": {
     "@stitches/react": "^1.2.8",
     "install": "^0.13.0",
+    "mobx": "^6.6.2",
     "mobx-react-lite": "^3.4.0",
     "mobx-state-tree": "^5.1.6",
     "npm": "^8.19.2",

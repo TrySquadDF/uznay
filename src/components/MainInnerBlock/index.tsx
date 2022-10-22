@@ -1,12 +1,13 @@
 import { memo } from "react";
 import { observer } from "mobx-react-lite";
 
+import OtherList from "../List/components/OtherList/OtherList";
 import { Grid } from "../Grid";
+import { Card } from "./components/Card/Card";
+import { ClMainBlock } from "../Grid/Catalog";
 
 import useStore from "@/hooks/useStore";
-import { Card } from "./components/Card/Card";
-import NewsList from "../List/NewsList/NewsList";
-import { ClMainBlock } from "../Grid/Catalog";
+import { To } from "../UI/To";
 
 const MainInnerBlock = () => {
   const { APIV } = useStore();
@@ -14,38 +15,41 @@ const MainInnerBlock = () => {
   return (
     <Grid>
       <Grid.Content>
-        <Grid
-          css={{
-            margin: "40px 54px",
-          }}
-        >
+        <Grid>
           {APIV.result && (
-            <div
-              style={{
+            <Grid.Content
+              css={{
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-              }} // Макт
+              }} // Макет
             >
-              <ClMainBlock
-                css={{
-                  width: "90%",
-                }}
-              >
-                <Card
-                  title={APIV.result ? APIV.result.articles[0].title : "title"}
-                  img={APIV.result.articles[0].urlToImage}
-                  to={APIV.result.articles[0].url}
-                ></Card>
-                <NewsList />
+              <ClMainBlock>
+                <OtherList />
               </ClMainBlock>
-            </div>
+            </Grid.Content>
           )}
         </Grid>
       </Grid.Content>
     </Grid> // two grid containermaquette big card
   );
 };
+
+{
+  /* <Card
+                  title={APIV.result ? APIV.result.articles[0].title : "title"}
+                  img={APIV.result.articles[0].urlToImage}
+                  to={APIV.result.articles[0].url}
+                />
+
+                <div
+                  style={{
+                    marginLeft: "1rem",
+                  }}
+                >
+                  <OtherList />
+                </div> */
+}
 
 {
   /* <Grid.Content
