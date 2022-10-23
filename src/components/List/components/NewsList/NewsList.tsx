@@ -8,7 +8,13 @@ const NewsList = () => {
   const { API } = useStore();
 
   return (
-    <List>
+    <List
+      css={{
+        "@mobile": {
+          display: "none",
+        },
+      }}
+    >
       {API.result?.articles.map((el) => {
         return (
           <List.Items key={el.publishedAt}>
