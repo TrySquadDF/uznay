@@ -12,7 +12,7 @@ export const Heading = styled("span", {
       },
       h3: {
         fontSize: "18px",
-        lineHeight: "18px",
+        lineHeight: "24px",
       },
     },
   },

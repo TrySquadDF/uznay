@@ -11,6 +11,7 @@ type ImageProps = Omit<
 export const Image: FC<ImageProps> = ({ src }) => {
   return (
     <img
+      draggable={false}
       src={src ? src : "/img.svg"}
       style={{
         width: "100%",

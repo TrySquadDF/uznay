@@ -13,7 +13,7 @@ const store = types
       self.APIV.init("/v2/everything", {
         q: "Russia",
         language: "ru",
-        pageSize: 20,
+        pageSize: 5,
       });
     },
   }));

@@ -22,7 +22,7 @@
       "@/hooks/*": ["src/hooks/*"],
       "@/page/*": ["src/page/*"],
       "@/utils/*" : ["src/utils/*"],
-      "@/UI/*": ["src/UI/*" ],
+      "@/UI/*": ["src/components/UI/*" ],
     }
   },
   "include": ["src"],
