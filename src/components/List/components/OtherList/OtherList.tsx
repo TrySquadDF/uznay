@@ -41,6 +41,7 @@ const OtherList = () => {
             display: "none",
           },
           margin: "0 2rem",
+          marginBottom: "1rem",
         }}
       />
       <Box

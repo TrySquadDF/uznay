@@ -8,14 +8,19 @@ type ImageProps = Omit<
   "src"
 > & { src?: string | null };
 
-export const Image: FC<ImageProps> = ({ src }) => {
+export const Image: FC<ImageProps> = ({ src, style, draggable, ...args }) => {
   return (
     <img
-      draggable={false}
+      draggable={draggable ? draggable : false}
       src={src ? src : "/img.svg"}
-      style={{
-        width: "100%",
-      }}
+      style={
+        style
+          ? style
+          : {
+              width: "100%",
+            }
+      }
+      {...args}
     ></img>
   );
 };

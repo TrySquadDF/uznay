@@ -1,13 +1,14 @@
 import { memo } from "react";
 import { observer } from "mobx-react-lite";
 
-import OtherList from "../List/components/OtherList/OtherList";
 import { Grid } from "../Grid";
-import { Card } from "./components/Card/Card";
 import { ClMainBlock } from "../Grid/Catalog";
 
+import OtherList from "../List/components/OtherList/OtherList";
+
 import useStore from "@/hooks/useStore";
-import { To } from "../UI/To";
+
+// По мере разработки в случае необходимости можоно избавить от компонента CARD ./components/Card это тестовый экзепляр
 
 const MainInnerBlock = () => {
   const { APIV } = useStore();

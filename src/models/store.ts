@@ -1,6 +1,5 @@
 import { types } from "mobx-state-tree";
 import API from "./api";
-import article from "./article";
 
 const store = types
   .model({
