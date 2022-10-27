@@ -7,6 +7,7 @@ import { Box } from "@/components/UI/Box";
 import { Hr } from "@/components/UI/Hr";
 
 import useStore from "@/hooks/useStore";
+import { Loader } from "@/components/UI/Loader";
 
 //TO DO: Привести в порядок документ разбить на блоки и сдлеать отделный комнонент для отображения даты.
 //TO DO: Описать типы Respons. Прикурить скелетоню
@@ -16,7 +17,19 @@ const OtherList = () => {
     APIV: { result },
   } = useStore();
 
-  if (!result) return null;
+  if (!result)
+    return (
+      <Box
+        css={{
+          size: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loader />
+      </Box>
+    );
 
   return (
     <Box

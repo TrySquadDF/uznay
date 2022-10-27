@@ -1,13 +1,11 @@
 import {
   category,
   country,
-  everything,
   language,
   location,
   q,
   sortBy,
   sources,
-  topHeadlinesSources,
 } from "./apiParamsTypes";
 
 export interface ResponsError {
@@ -16,7 +14,27 @@ export interface ResponsError {
   message: string;
 }
 
-export interface Respons {}
+export interface Respons {
+  status: "ok";
+  totalResults: Number;
+  articles: article;
+}
+
+export type source = {
+  id: string | null;
+  name: string | null;
+};
+
+export type article = {
+  source: source;
+  author: string | null;
+  title: string;
+  description: string | null;
+  url: string;
+  urlToImage: string | null;
+  publishedAt: string;
+  content: string | null;
+};
 
 export type topHeadlinesSourcesQuery = {
   country: country;
@@ -51,28 +69,3 @@ export type toServer = (
   type: location,
   prams: Partial<topHeadlinesQuery | everythingQuery | topHeadlinesSourcesQuery>
 ) => Promise<any>;
-
-export type d = (param: aca | bas | cas) => Promise<any>;
-// export type a = (
-//   type: topHeadlines,
-//   params: Partial<topHeadlinesQuery>
-// ) => Promise<any>;
-// export type c = (
-//   type: topHeadlinesSources,
-//   params: Partial<topHeadlinesSourcesQuery>
-// ) => Promise<any>;
-
-export type aca = {
-  type: everything;
-  params: Partial<everythingQuery>;
-};
-
-export type bas = {
-  type: topHeadlinesSources;
-  params: Partial<topHeadlinesSourcesQuery>;
-};
-
-export type cas = {
-  type: topHeadlinesSources;
-  params: Partial<topHeadlinesSourcesQuery>;
-};
