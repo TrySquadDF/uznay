@@ -16,6 +16,8 @@ export interface ResponsError {
   message: string;
 }
 
+export interface Respons {}
+
 export type topHeadlinesSourcesQuery = {
   country: country;
   language: language;

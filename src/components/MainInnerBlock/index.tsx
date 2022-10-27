@@ -6,30 +6,24 @@ import { ClMainBlock } from "../Grid/Catalog";
 
 import OtherList from "../List/components/OtherList/OtherList";
 
-import useStore from "@/hooks/useStore";
-
 // По мере разработки в случае необходимости можоно избавить от компонента CARD ./components/Card это тестовый экзепляр
 
 const MainInnerBlock = () => {
-  const { APIV } = useStore();
-
   return (
     <Grid>
       <Grid.Content>
         <Grid>
-          {APIV.result && (
-            <Grid.Content
-              css={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-              }} // Макет
-            >
-              <ClMainBlock>
-                <OtherList />
-              </ClMainBlock>
-            </Grid.Content>
-          )}
+          <Grid.Content
+            css={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }} // Макет
+          >
+            <ClMainBlock>
+              <OtherList />
+            </ClMainBlock>
+          </Grid.Content>
         </Grid>
       </Grid.Content>
     </Grid> // two grid containermaquette big card

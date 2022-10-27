@@ -3,6 +3,7 @@ import { Text } from "@/UI/Text";
 import { Heading } from "@/UI/Heading";
 import { Image } from "@/UI/Image";
 import { To } from "@/UI/To";
+import { FC } from "react";
 
 export const CardMin = ({
   title,
@@ -103,7 +104,6 @@ export const CardBig = ({
         })}
       </Text>
       <Heading size="h2">{title}</Heading>
-
       <Text
         css={{
           display: "flex",

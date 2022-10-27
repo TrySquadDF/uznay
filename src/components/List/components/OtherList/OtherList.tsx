@@ -1,17 +1,22 @@
 import { observer } from "mobx-react-lite";
 import { memo } from "react";
 
-import { Heading } from "@/components/UI/Heading";
 import { CardMin, CardBig } from "@/components/Card";
+import { Heading } from "@/components/UI/Heading";
 import { Box } from "@/components/UI/Box";
-
-import useStore from "@/hooks/useStore";
 import { Hr } from "@/components/UI/Hr";
 
+import useStore from "@/hooks/useStore";
+
 //TO DO: Привести в порядок документ разбить на блоки и сдлеать отделный комнонент для отображения даты.
+//TO DO: Описать типы Respons. Прикурить скелетоню
 
 const OtherList = () => {
-  const { APIV } = useStore();
+  const {
+    APIV: { result },
+  } = useStore();
+
+  if (!result) return null;
 
   return (
     <Box
@@ -26,11 +31,11 @@ const OtherList = () => {
       }}
     >
       <CardBig
-        src={APIV.result!.articles[0].urlToImage}
-        title={APIV.result!.articles[0].title}
-        disc={APIV.result!.articles[0].description}
-        url={APIV.result!.articles[0].url}
-        date={APIV.result!.articles[0].publishedAt}
+        src={result!.articles[0].urlToImage}
+        title={result!.articles[0].title}
+        disc={result!.articles[0].description}
+        url={result!.articles[0].url}
+        date={result!.articles[0].publishedAt}
       />
       <Hr
         css={{
@@ -61,17 +66,19 @@ const OtherList = () => {
             paddingTop: "1rem",
           }}
         >
-          {APIV.result?.articles.map((el, i) => {
-            if (i !== 0)
-              return (
-                <CardMin
-                  title={el.title}
-                  disc={el.description}
-                  url={el.url}
-                  date={el.publishedAt}
-                />
-              );
-          })}
+          {result.articles.map(
+            ({ title, description, url, publishedAt }, i) => {
+              if (i !== 0)
+                return (
+                  <CardMin
+                    title={title}
+                    disc={description}
+                    url={url}
+                    date={publishedAt}
+                  />
+                );
+            }
+          )}
         </Box>
       </Box>
     </Box>
