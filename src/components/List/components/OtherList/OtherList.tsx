@@ -3,21 +3,29 @@ import { memo } from "react";
 
 import { CardMin, CardBig } from "@/components/Card";
 import { Heading } from "@/components/UI/Heading";
+import { Loader } from "@/components/UI/Loader";
 import { Box } from "@/components/UI/Box";
 import { Hr } from "@/components/UI/Hr";
 
 import useStore from "@/hooks/useStore";
-import { Loader } from "@/components/UI/Loader";
 
 //TO DO: Привести в порядок документ разбить на блоки и сдлеать отделный комнонент для отображения даты.
 //TO DO: Описать типы Respons. Прикурить скелетоню
 
 const OtherList = () => {
   const {
-    APIV: { result },
+    APIV: { result, loading, error },
   } = useStore();
 
-  if (!result)
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  if (result?.articles.length === 0) {
+    throw new Error("Нет ничего, чтобы мы могли вам показать.");
+  }
+
+  if (loading || !result || result.articles.length === 0)
     return (
       <Box
         css={{

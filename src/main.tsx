@@ -5,6 +5,7 @@ import { Root } from "./page/root";
 import { TopHeadlines } from "./page/topheadlines";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createContext } from "react";
+import { ErrorPage } from "./page/error";
 
 import "./index.css";
 
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

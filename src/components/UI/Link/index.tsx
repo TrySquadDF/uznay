@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { CSS, styled } from "@stitches/react";
 import { NavLink } from "react-router-dom";
 
