@@ -19,7 +19,7 @@ export const MainGrid = styled("div", {
 export const ClMainBlock = styled("div", {
   display: "flex",
   width: "100%",
-  maxWidth: "1070px",
+  maxWidth: "1200px",
   padding: "2rem 1.5rem 0 1.5rem",
   gridTemplateColumns: "1fr 1fr 1fr",
   gridGap: "20px",

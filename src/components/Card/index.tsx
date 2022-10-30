@@ -84,6 +84,12 @@ export const CardBig = ({
     <Box
       css={{
         maxWidth: "600px",
+        "&:not(:first-child)": {
+          padding: "1rem 0",
+        },
+        "&:first-child": {
+          paddingBottom: "1rem",
+        },
       }}
     >
       <Image src={src} />

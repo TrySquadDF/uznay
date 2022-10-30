@@ -13,23 +13,18 @@ import useStore from "@/hooks/useStore";
 //TO DO: Описать типы Respons. Прикурить скелетоню
 
 const OtherList = () => {
-  const {
-    APIV: { result, loading, error },
-  } = useStore();
+  const { APIV, Recomendation } = useStore();
 
-  if (error) {
-    throw new Error(error.message);
+  if (APIV.error) {
+    throw new Error(APIV.error.message);
   }
 
-  if (result?.articles.length === 0) {
-    throw new Error("Нет ничего, чтобы мы могли вам показать.");
-  }
-
-  if (loading || !result || result.articles.length === 0)
+  if (APIV.loading || !APIV.result || Recomendation.loading)
     return (
       <Box
         css={{
-          size: "100%",
+          width: "100%",
+          height: "calc(100vh - 6rem)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -39,37 +34,23 @@ const OtherList = () => {
       </Box>
     );
 
+  if (APIV.result?.articles.length === 0) {
+    throw new Error("Нет ничего, чтобы мы могли вам показать.");
+  }
+
   return (
     <Box
       css={{
         padding: "0 0.5rem",
-        "@longDesktop": {
-          display: "flex",
+        display: "flex",
+        "@tablet": {
+          flexDirection: "column-reverse",
         },
-        "@desktop": {
-          display: "flex",
+        "@mobile": {
+          flexDirection: "column-reverse",
         },
       }}
     >
-      <CardBig
-        src={result!.articles[0].urlToImage}
-        title={result!.articles[0].title}
-        disc={result!.articles[0].description}
-        url={result!.articles[0].url}
-        date={result!.articles[0].publishedAt}
-      />
-      <Hr
-        css={{
-          "@mobile": {
-            display: "none",
-          },
-          "@tablet": {
-            display: "none",
-          },
-          margin: "0 2rem",
-          marginBottom: "1rem",
-        }}
-      />
       <Box
         css={{
           dispaly: "flex",
@@ -87,7 +68,7 @@ const OtherList = () => {
             paddingTop: "1rem",
           }}
         >
-          {result.articles.map(
+          {APIV.result.articles.map(
             ({ title, description, url, publishedAt }, i) => {
               if (i !== 0)
                 return (
@@ -102,6 +83,42 @@ const OtherList = () => {
           )}
         </Box>
       </Box>
+      {Recomendation.result && (
+        <>
+          {" "}
+          <Hr
+            css={{
+              "@mobile": {
+                display: "none",
+              },
+              "@tablet": {
+                display: "none",
+              },
+              margin: "0 2rem",
+              marginBottom: "1rem",
+            }}
+          />
+          <Box
+            css={{
+              "@longDesktop": {
+                minWidth: "600px",
+              },
+            }}
+          >
+            {Recomendation.result.articles.map((el, i) => {
+              return (
+                <CardBig
+                  src={el.urlToImage}
+                  title={el.title}
+                  disc={el.description}
+                  url={el.url}
+                  date={el.publishedAt}
+                />
+              );
+            })}
+          </Box>
+        </>
+      )}
     </Box>
   );
 };

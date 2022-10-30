@@ -14,7 +14,7 @@ const LinkStyle = styled("span", {
     fill: {
       primary: {
         transition: "background 0.1s ease-in-out",
-        background: "rgba(25, 100, 231,0.03)",
+        background: "rgb(246 249 255)",
       },
     },
     border: {
