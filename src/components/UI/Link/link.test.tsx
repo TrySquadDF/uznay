@@ -35,11 +35,5 @@ describe("Link", async () => {
         state: undefined,
       }
     );
-
-    // expect(screen.getByText("test")).toBeInTheDocument();
-    // const link = screen.getByRole("link", {});
-    // act(() => {
-    //   link.click();
-    // });
   });
 });
