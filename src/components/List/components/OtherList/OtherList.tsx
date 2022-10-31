@@ -77,6 +77,7 @@ const OtherList = () => {
                     disc={description}
                     url={url}
                     date={publishedAt}
+                    key={url + "min"}
                   />
                 );
             }
@@ -85,7 +86,6 @@ const OtherList = () => {
       </Box>
       {Recomendation.result && (
         <>
-          {" "}
           <Hr
             css={{
               "@mobile": {
@@ -113,6 +113,7 @@ const OtherList = () => {
                   disc={el.description}
                   url={el.url}
                   date={el.publishedAt}
+                  key={el.urlToImage + "big"}
                 />
               );
             })}

@@ -1,4 +1,3 @@
-import { observer } from "mobx-react-lite";
 import { Grid } from "@/components/Grid";
 import { MainGrid } from "@/components/Grid/Catalog";
 
@@ -25,4 +24,4 @@ function App() {
   );
 }
 
-export default observer(App);
+export default App;

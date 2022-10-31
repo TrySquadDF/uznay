@@ -1,11 +1,14 @@
 import ReactDOM from "react-dom/client";
 import store from "./models/store";
+
+import Search from "./page/search";
 import App from "./page/app";
 import { Root } from "./page/root";
 import { TopHeadlines } from "./page/topheadlines";
+import { ErrorPage } from "./page/error";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createContext } from "react";
-import { ErrorPage } from "./page/error";
 
 import "./index.css";
 
@@ -22,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/top-headlines",
         element: <TopHeadlines />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
     ],
   },

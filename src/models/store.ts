@@ -1,10 +1,12 @@
 import { types } from "mobx-state-tree";
 import API from "./api";
+import { search } from "./search";
 
 const store = types
   .model({
     API: types.optional(API, {}),
     APIV: types.optional(API, {}),
+    search: types.optional(search, { limit: 15 }),
     Recomendation: types.optional(API, {}),
   })
   .actions((self) => ({

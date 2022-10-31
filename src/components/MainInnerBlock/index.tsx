@@ -18,7 +18,7 @@ const MainInnerBlock = () => {
               width: "100%",
               display: "flex",
               justifyContent: "center",
-            }} // Макет
+            }}
           >
             <ClMainBlock>
               <OtherList />
@@ -26,48 +26,8 @@ const MainInnerBlock = () => {
           </Grid.Content>
         </Grid>
       </Grid.Content>
-    </Grid> // two grid containermaquette big card
+    </Grid>
   );
 };
-
-{
-  /* <Card
-                  title={APIV.result ? APIV.result.articles[0].title : "title"}
-                  img={APIV.result.articles[0].urlToImage}
-                  to={APIV.result.articles[0].url}
-                />
-
-                <div
-                  style={{
-                    marginLeft: "1rem",
-                  }}
-                >
-                  <OtherList />
-                </div> */
-}
-
-{
-  /* <Grid.Content
-              display={"flex"}
-              css={{
-                maxWidth: "1280px",
-              }}
-            >
-              <Grid.Content
-                css={{
-                  maxWidth: "720px",
-                }}
-              >
-                <Card
-                  title={APIV.result ? APIV.result.articles[0].title : "title"}
-                  img={APIV.result.articles[0].urlToImage}
-                  to={APIV.result.articles[0].url}
-                ></Card>
-              </Grid.Content>
-              <Grid.Content>
-                <NewsList></NewsList>
-              </Grid.Content>
-            </Grid.Content> */
-}
 
 export default memo(observer(MainInnerBlock));
