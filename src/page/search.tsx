@@ -2,13 +2,16 @@ import { CardMin } from "@/components/Card";
 import { Box } from "@/components/UI/Box";
 import { ButtonBase } from "@/components/UI/ButtonBase/ButtonBase";
 import { Heading } from "@/components/UI/Heading";
-import useStore from "@/hooks/useStore";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+
+import useStore from "@/hooks/useStore";
 
 function Search() {
   let [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+
   const {
     search: { setSearch, store, params, editLimit },
   } = useStore();
@@ -16,12 +19,14 @@ function Search() {
   useEffect(() => {
     if (typeof searchParams.get("q") === "string") {
       setSearch(searchParams.get("q") as string);
+    } else {
+      navigate("/");
     }
   }, []);
 
-  useEffect(() => {
-    console.log(store);
-  }, [store]);
+  // useEffect(() => {
+  //   console.log(store); // dev
+  // }, [store]);
 
   return (
     <Box
@@ -30,9 +35,7 @@ function Search() {
         alignItems: "center",
         flexDirection: "column",
         paddingTop: "2rem",
-        "@mobile": {
-          padding: "2rem",
-        },
+        padding: "2rem",
       }}
     >
       <Heading

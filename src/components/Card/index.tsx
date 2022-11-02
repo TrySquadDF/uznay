@@ -3,7 +3,6 @@ import { Text } from "@/UI/Text";
 import { Heading } from "@/UI/Heading";
 import { Image } from "@/UI/Image";
 import { To } from "@/UI/To";
-import { FC } from "react";
 
 export const CardMin = ({
   title,
@@ -47,13 +46,23 @@ export const CardMin = ({
         })}
       </Text>
       <Heading size="h3">{title}</Heading>
-      <Text
-        css={{
-          padding: "1rem 0",
-        }}
-      >
-        {disc}
-      </Text>
+      {disc && (
+        <Text
+          css={{
+            padding: "1rem 0",
+            ol: {
+              padding: "0",
+              li: {
+                "&::marker": {
+                  content: "•  ",
+                  marginRigth: "1rem",
+                },
+              },
+            },
+          }}
+          dangerouslySetInnerHTML={{ __html: disc }}
+        ></Text>
+      )}
       <To
         href={url}
         style="primary"
