@@ -9,7 +9,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import useStore from "@/hooks/useStore";
 
 function Search() {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
+
   const navigate = useNavigate();
 
   const {
@@ -23,10 +24,6 @@ function Search() {
       navigate("/");
     }
   }, []);
-
-  // useEffect(() => {
-  //   console.log(store); // dev
-  // }, [store]);
 
   return (
     <Box

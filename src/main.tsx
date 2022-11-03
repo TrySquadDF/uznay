@@ -1,16 +1,17 @@
 import ReactDOM from "react-dom/client";
 import store from "./models/store";
 
-import Search from "./page/search";
-import App from "./page/app";
 import { Root } from "./page/root";
 import { TopHeadlines } from "./page/topheadlines";
-import { ErrorPage } from "./page/error";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { createContext } from "react";
+import { createContext, lazy, Suspense } from "react";
 
 import "./index.css";
+
+const ErrorPage = lazy(() => import("./page/error"));
+const Search = lazy(() => import("./page/search"));
+const App = lazy(() => import("./page/app"));
 
 const router = createBrowserRouter([
   {

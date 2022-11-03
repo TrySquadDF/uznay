@@ -37,7 +37,7 @@ const Text = styled("span", {
   },
 });
 
-export const ErrorPage = () => {
+const ErrorPage = () => {
   const error = useRouteError();
 
   if (isRouteErrorResponse(error)) {
@@ -62,3 +62,5 @@ export const ErrorPage = () => {
     </ErrorStyle>
   );
 };
+
+export default ErrorPage;

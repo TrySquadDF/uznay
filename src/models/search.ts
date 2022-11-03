@@ -4,20 +4,24 @@ import API from "./api";
 export const search = types
   .model("search", {
     params: types.maybeNull(types.string),
-    limit: types.number,
+    limit: types.optional(types.number, 10),
     store: types.optional(API, {}),
   })
   .actions((self) => ({
     setSearch(query: string) {
       self.params = query;
-      self.store.init("/v2/everything", {
-        q: query,
-        pageSize: self.limit,
-      });
+      if (self.params !== query || !self.store.result)
+        self.store.init("/v2/everything", {
+          q: query,
+          pageSize: self.limit,
+        });
     },
     editLimit(number: number) {
-      self.limit = self.limit + number;
       if (self.params) {
+        self.limit =
+          self.limit + number === self.store.result?.totalResults
+            ? self.store.result.totalResults
+            : self.limit + number;
         self.store.init("/v2/everything", {
           q: self.params,
           pageSize: self.limit,

@@ -6,7 +6,7 @@ const store = types
   .model({
     API: types.optional(API, {}),
     APIV: types.optional(API, {}),
-    search: types.optional(search, { limit: 15 }),
+    search: types.optional(search, {}),
     Recomendation: types.optional(API, {}),
   })
   .actions((self) => ({

@@ -1,6 +1,7 @@
 import { styled } from "@stitches/react";
 import { Grid } from "../Grid";
 import { Logo } from "../Logo";
+import { Search } from "../Search/Search";
 import { Link } from "../UI/Link";
 
 const routeItems = [
@@ -39,6 +40,7 @@ export const Header = ({}) => {
             <Link to={path} lable={title} key={title} />
           ))}
         </Grid.Content>
+        <Search />
       </Grid>
     </SemanticWrapper>
   );
