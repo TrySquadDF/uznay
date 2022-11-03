@@ -1,26 +1,42 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
+/** Вешает обработчик на событие указанное в аргументе хука
+ *
+ * @param event событе из `addEventListener` `KeyboardEvent`
+ * @param eventHandler событие обработчик. В аргумент функции передаётся event типа `KeyboardEvent`
+ */
 
 export const useKeyboard = (
-  eventCode: string
-): [boolean, React.Dispatch<React.SetStateAction<boolean>>] => {
-  const [keypress, setKeypress] = useState(false);
+  event: "keyup" | "keydown" | "keypress",
+  eventHandler?: (ev: KeyboardEvent) => void
+): void => {
+  const defualtEventHandler = () => {
+    console.log("[useBind eventHandler]");
+  };
 
   useEffect(() => {
-    document.addEventListener("keydown", (event) => {
-      if (event.code === eventCode) {
-        if (!keypress) {
-          console.log(keypress);
-          setKeypress((state) => !state);
+    document.addEventListener(
+      event,
+      (e) => {
+        if (eventHandler) {
+          eventHandler(e);
+        } else {
+          defualtEventHandler();
         }
-      }
-    });
+      },
+      true
+    );
 
-    return document.removeEventListener("keydown", (event) => {
-      if (event.code === eventCode) {
-        setKeypress(false);
-      }
-    });
+    return document.removeEventListener(
+      event,
+      (e) => {
+        if (eventHandler) {
+          eventHandler(e);
+        } else {
+          defualtEventHandler();
+        }
+      },
+      true
+    );
   }, []);
-
-  return [keypress, setKeypress];
 };
