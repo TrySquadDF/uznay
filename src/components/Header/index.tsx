@@ -40,7 +40,9 @@ export const Header = ({}) => {
             <Link to={path} lable={title} key={title} />
           ))}
         </Grid.Content>
-        <Search />
+        <Grid.Content display="flex" items="center" justifyContent="right">
+          <Search css={{ marginRight: "3rem" }} />
+        </Grid.Content>
       </Grid>
     </SemanticWrapper>
   );

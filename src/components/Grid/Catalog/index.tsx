@@ -35,22 +35,3 @@ export const ClMainBlock = styled("div", {
     minWidth: "90%",
   },
 });
-
-// export const ClMainBlock = styled("div", {
-//   display: "grid",
-//   width: "100%",
-//   maxWidth: "1070px",
-//   padding: "2rem 1.5rem 0 1.5rem",
-//   gridTemplateColumns: "2fr 1fr",
-//   "@tablet": {
-//     gridTemplateColumns: "1fr",
-//   },
-//   "@mobile": {
-//     gridTemplateColumns: "1fr",
-//     padding: "2rem 0.25rem 0 0.25rem ",
-//   },
-//   "@longDesktop": {
-//     gridTemplateColumns: "2fr 1fr",
-//     minWidth: "90%",
-//   },
-// });

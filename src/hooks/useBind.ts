@@ -1,9 +1,19 @@
-import { ReactNode, RefObject, useEffect, useRef } from "react";
+import { ReactNode, RefObject } from "react";
 import { useKeyboard } from "./useKeyboard";
 
-export function useBind(ref: RefObject<HTMLInputElement>) {
+/**  Фокуисруетется на элементе по привязки клавиши.
+ * @param ref Ссылка на элемент.
+ * @param key Код клавиши.
+ */
+export function useBindFocus(ref: RefObject<HTMLInputElement>, key: string) {
   useKeyboard("keyup", (ev) => {
-    console.log(ev);
+    if (
+      ev.code === key &&
+      ref.current &&
+      document.activeElement !== ref.current
+    ) {
+      ref.current.focus();
+    }
   });
 }
 

@@ -61,6 +61,14 @@ const ContentBlock = styled("div", {
         alignItems: "center",
       },
     },
+    justifyContent: {
+      center: {
+        justifyContent: "center",
+      },
+      right: {
+        justifyContent: "flex-end",
+      },
+    },
   },
 });
 

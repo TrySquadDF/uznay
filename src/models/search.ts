@@ -9,12 +9,13 @@ export const search = types
   })
   .actions((self) => ({
     setSearch(query: string) {
-      self.params = query;
-      if (self.params !== query || !self.store.result)
+      if (self.params !== query || !self.store.result) {
         self.store.init("/v2/everything", {
           q: query,
           pageSize: self.limit,
         });
+      }
+      self.params = query;
     },
     editLimit(number: number) {
       if (self.params) {
