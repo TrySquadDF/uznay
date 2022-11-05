@@ -3,6 +3,7 @@ import { MainGrid } from "@/components/Grid/Catalog";
 
 import NewsList from "@/components/List/components/NewsList/NewsList";
 import MainInnerBlock from "@/components/MainInnerBlock";
+import { Box } from "@/components/UI/Box";
 
 function App() {
   return (

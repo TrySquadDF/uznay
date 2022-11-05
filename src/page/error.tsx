@@ -54,7 +54,7 @@ const ErrorPage = () => {
 
   return (
     <ErrorStyle>
-      <Text>
+      <Text css={{ maxWidth: "1200px" }}>
         <Heading title="error">
           {errorTyped["message"] ? errorTyped["message"] : "Oppps"}
         </Heading>

@@ -1,13 +1,13 @@
-import { CardMin } from "@/components/Card";
-import { Box } from "@/components/UI/Box";
-import { ButtonBase } from "@/components/UI/ButtonBase/ButtonBase";
-import { Heading } from "@/components/UI/Heading";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
+import { Box } from "@/components/UI/Box";
+import { ButtonBase } from "@/components/UI/ButtonBase/ButtonBase";
+import { Heading } from "@/components/UI/Heading";
+import { CardMin } from "@/components/Card";
+
 import useStore from "@/hooks/useStore";
-import { Loader } from "@/components/UI/Loader";
 
 function Search() {
   let [searchParams] = useSearchParams();
@@ -26,8 +26,21 @@ function Search() {
     }
   }, [, searchParams]);
 
+  if (store.error) {
+    throw new Error(store.error.message);
+  }
+
+  if (store.result?.articles.length === 0) {
+    return (
+      <Box>
+        <Heading>{`По теме: ${params} мы не смогли ничего найти.`}</Heading>
+      </Box>
+    );
+  }
+
   return (
-    <Box
+    <Box.Load
+      isLoad={Boolean(store.result)}
       css={{
         display: "flex",
         alignItems: "center",
@@ -36,56 +49,52 @@ function Search() {
         padding: "2rem",
       }}
     >
-      {store.result ? (
-        <>
-          <Heading
-            css={{
-              maxWidth: "fit-content",
-              paddingBottom: "2rem",
-            }}
-            size="h2"
-          >{`По запросу: "${params}" найденно ${store.result?.totalResults} статей`}</Heading>
-          <Box
-            css={{
-              maxWidth: "fit-content",
-            }}
-          >
-            {store.result?.articles.map(
-              ({ title, description, url, publishedAt }) => {
-                return (
-                  <CardMin
-                    title={title}
-                    disc={description}
-                    url={url}
-                    date={publishedAt}
-                    key={url + "min"}
-                  ></CardMin>
-                );
-              }
-            )}
-          </Box>
-          <ButtonBase
-            css={{
-              width: "100%",
-              background: "var(--primary-color)",
-              padding: "0.25rem",
-              fontWeight: "bold",
-              fontSize: "22pt",
-              maxWidth: "1200px",
-              color: "White",
-              margin: "1rem 0",
-            }}
-            onClick={() => {
-              editLimit(5);
-            }}
-          >
-            +
-          </ButtonBase>
-        </>
-      ) : (
-        <Loader />
-      )}
-    </Box>
+      <Box.Load isLoad={Boolean(store.result?.totalResults)}>
+        <Heading
+          css={{
+            maxWidth: "fit-content",
+            paddingBottom: "2rem",
+          }}
+          size="h2"
+        >{`По запросу: "${params}" найденно ${store.result?.totalResults} статей`}</Heading>
+      </Box.Load>
+      <Box
+        css={{
+          maxWidth: "fit-content",
+        }}
+      >
+        {store.result?.articles.map(
+          ({ title, description, url, publishedAt }) => {
+            return (
+              <CardMin
+                title={title}
+                disc={description}
+                url={url}
+                date={publishedAt}
+                key={url + "min"}
+              ></CardMin>
+            );
+          }
+        )}
+      </Box>
+      <ButtonBase
+        css={{
+          width: "100%",
+          background: "var(--primary-color)",
+          padding: "0.25rem",
+          fontWeight: "bold",
+          fontSize: "22pt",
+          maxWidth: "1200px",
+          color: "White",
+          margin: "1rem 0",
+        }}
+        onClick={() => {
+          editLimit(5);
+        }}
+      >
+        +
+      </ButtonBase>
+    </Box.Load>
   );
 }
 

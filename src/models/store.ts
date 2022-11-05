@@ -1,6 +1,7 @@
 import { types } from "mobx-state-tree";
-import API from "./api";
+
 import { search } from "./search";
+import API from "./api";
 
 const store = types
   .model({
@@ -15,7 +16,7 @@ const store = types
       self.APIV.init("/v2/everything", {
         q: "Russia",
         language: "ru",
-        pageSize: 6,
+        pageSize: 7,
       });
       self.Recomendation.init("/v2/top-headlines", {
         country: "ru",
