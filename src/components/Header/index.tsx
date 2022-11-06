@@ -4,16 +4,19 @@ import { Logo } from "../Logo";
 import { Search } from "../Search/Search";
 import { Link } from "../UI/Link";
 
+// TODO: превратить NavBar в опшон или длроп бар
+
 const routeItems = [
   {
     path: "/",
     title: "Все",
   },
-  {
-    path: "/top-headlines",
-    title: "Главное",
-  },
 ];
+
+// {
+//   path: "/top-headlines",
+//   title: "Главное",
+// }
 
 const SemanticWrapper = styled("header", {
   top: "0",
@@ -41,7 +44,9 @@ export const Header = ({}) => {
           ))}
         </Grid.Content>
         <Grid.Content display="flex" items="center" justifyContent="right">
-          <Search css={{ marginRight: "3rem" }} />
+          <Search
+            css={{ marginRight: "2rem", "@mobile": { marginRight: "0" } }}
+          />
         </Grid.Content>
       </Grid>
     </SemanticWrapper>

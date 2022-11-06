@@ -6,4 +6,12 @@ export const ButtonBase = styled("button", {
   "&:hover": {
     cursor: "pointer",
   },
+
+  variants: {
+    style: {
+      primary: {
+        background: "rgb(246, 249, 255)",
+      },
+    },
+  },
 });

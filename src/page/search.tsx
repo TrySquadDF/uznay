@@ -32,7 +32,11 @@ function Search() {
 
   if (store.result?.articles.length === 0) {
     return (
-      <Box>
+      <Box
+        css={{
+          height: "clac(100vh-4rem)",
+        }}
+      >
         <Heading>{`По теме: ${params} мы не смогли ничего найти.`}</Heading>
       </Box>
     );

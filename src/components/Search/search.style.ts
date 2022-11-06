@@ -28,14 +28,54 @@ export const FormContainer = styled("form", {
   borderRadius: "5px",
   width: "18rem",
   height: "1.25rem",
-  padding: "0.25rem 0.5rem",
+
   variants: {
+    paddingLagrgePlatform: {
+      defualt: {
+        padding: "0.25rem 0.5rem",
+        "@mobile": {
+          padding: "0",
+        },
+      },
+    },
     color: {
       primary: {
         border: "2px solid var(--primary-color)",
+        background: "White",
       },
       grey: {
         border: "1px solid var(--gray-color)",
+      },
+    },
+    mobile: {
+      hidden: {
+        "@mobile": {
+          display: "none",
+        },
+      },
+      styles: {
+        "@mobile": {
+          width: "100%",
+          height: "100%",
+          border: "none",
+          padding: "0",
+        },
+      },
+    },
+    position: {
+      absolute: {
+        "@mobile": {
+          display: "flex",
+          position: "absolute",
+        },
+      },
+    },
+
+    boxShadowOnMobile: {
+      primary: {
+        "@mobile": {
+          boxShadow: "0 -10px 20px var(--primary-color)",
+        },
       },
     },
   },
