@@ -7,7 +7,7 @@ import { Box } from "@/components/UI/Box";
 
 function App() {
   return (
-    <MainGrid>
+    <MainGrid css={{ minHeight: "1000px" }}>
       <Grid.Content
         css={{
           borderRight: "1px solid var(--gray-color)",

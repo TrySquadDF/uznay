@@ -13,11 +13,6 @@ const routeItems = [
   },
 ];
 
-// {
-//   path: "/top-headlines",
-//   title: "Главное",
-// }
-
 const SemanticWrapper = styled("header", {
   top: "0",
   position: "sticky",

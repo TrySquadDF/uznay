@@ -5,7 +5,9 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Box } from "@/components/UI/Box";
 import { ButtonBase } from "@/components/UI/ButtonBase/ButtonBase";
 import { Heading } from "@/components/UI/Heading";
+import { Paragraph, Text } from "@/UI/Text";
 import { CardMin } from "@/components/Card";
+import { Image } from "@/components/UI/Image";
 
 import useStore from "@/hooks/useStore";
 
@@ -34,10 +36,38 @@ function Search() {
     return (
       <Box
         css={{
-          height: "clac(100vh-4rem)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "calc(100vh - 5rem)",
         }}
       >
-        <Heading>{`По теме: ${params} мы не смогли ничего найти.`}</Heading>
+        <Box css={{ maxWidth: "450px", padding: "2rem" }}>
+          <Image src={"/what.svg"} />
+          <Paragraph
+            css={{
+              fontWeight: "600",
+              textAlign: "center",
+              color: "var(--gray-color)",
+            }}
+          >
+            Наша коммада работает над наполнением! В следующий раз, мы сможем
+            покозать больше по вашему запросу! Больше ты можешь найти
+            <Text
+              css={{
+                color: "var(--primary-color)",
+                "&:hover": {
+                  cursor: "pointer",
+                },
+              }}
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              {"  здесь."}
+            </Text>
+          </Paragraph>
+        </Box>
       </Box>
     );
   }
