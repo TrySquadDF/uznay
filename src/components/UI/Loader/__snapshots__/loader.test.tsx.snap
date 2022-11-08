@@ -1,0 +1,49 @@
+// Vitest Snapshot v1
+
+exports[`Loader Test State > Загрзучик такой же Зеленый как и был 1`] = `
+<div
+  class="c-cyZEAk"
+  data-testid="loader"
+>
+  <div
+    class="c-jTKaZN"
+  >
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+    <span
+      class="c-cvlFAN"
+    />
+  </div>
+</div>
+`;

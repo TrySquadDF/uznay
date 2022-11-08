@@ -24,10 +24,6 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "/top-headlines",
-        element: <TopHeadlines />,
-      },
-      {
         path: "/search",
         element: <Search />,
       },
@@ -40,6 +36,8 @@ export const StoreContext = createContext(model);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <StoreContext.Provider value={model}>
-    <RouterProvider router={router} />
+    <Suspense>
+      <RouterProvider router={router} />
+    </Suspense>
   </StoreContext.Provider>
 );

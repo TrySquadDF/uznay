@@ -1,7 +1,7 @@
-import { useBindFocus } from "@/hooks/useBind";
+import { useBindFocus } from "h:/project/pet/uznay/src/hooks/useBind";
 import { CssProperty } from "@/types/componentsTypes";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "../UI/Box";
 import { ButtonBase } from "../UI/ButtonBase/ButtonBase";
@@ -37,6 +37,7 @@ export const Search = ({ ...args }: CssProperty) => {
         {...args}
       >
         <InputStyle
+          data-testid={"search-element"}
           ref={ref}
           css={{
             height: "100%",

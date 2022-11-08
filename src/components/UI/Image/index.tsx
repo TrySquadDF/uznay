@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 
 type ImageProps = Omit<
   React.DetailedHTMLProps<
@@ -9,11 +9,6 @@ type ImageProps = Omit<
 > & { src?: string | null };
 
 export const Image: FC<ImageProps> = ({ src, style, draggable, ...args }) => {
-  // useEffect(() => {
-  //   const img = new window.Image();
-  //   img.src = src ? src : "/img.svg";
-  // }, [src]);
-
   return (
     <img
       draggable={draggable ? draggable : false}

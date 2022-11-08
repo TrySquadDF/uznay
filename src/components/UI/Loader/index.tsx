@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import {
   StyledLoadingLabel,
   StyledSpinner,
@@ -8,7 +8,7 @@ import {
 
 export const Loader: FC<React.PropsWithChildren> = ({ children, ...args }) => {
   return (
-    <StyledSpinner {...args}>
+    <StyledSpinner data-testid={"loader"} {...args}>
       <StyledSpinnerContainer>
         {[...new Array(12)].map((_, index) => (
           <StyledSpinnerSpan key={`uznayui-spinner-${index}`} />

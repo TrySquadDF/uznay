@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 /** Вешает обработчик на событие указанное в аргументе хука
  *
