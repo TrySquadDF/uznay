@@ -1,8 +1,8 @@
-import { Box } from "@/UI/Box";
-import { Text } from "@/UI/Text";
-import { Heading } from "@/UI/Heading";
-import { Image } from "@/UI/Image";
-import { To } from "@/UI/To";
+import { Box } from "../UI/Box";
+import { Text } from "../UI/Text";
+import { Heading } from "../UI/Heading";
+import { Image } from "../UI/Image";
+import { To } from "../UI/To";
 
 export const CardMin = ({
   title,

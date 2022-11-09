@@ -1,7 +1,7 @@
-import { useBindFocus } from "h:/project/pet/uznay/src/hooks/useBind";
 import { CssProperty } from "@/types/componentsTypes";
+import { useBindFocus } from "../../hooks/useBind";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "../UI/Box";
 import { ButtonBase } from "../UI/ButtonBase/ButtonBase";
@@ -32,6 +32,7 @@ export const Search = ({ ...args }: CssProperty) => {
         mobile={mobileState ? "styles" : "hidden"}
         position={mobileState ? "absolute" : undefined}
         boxShadowOnMobile={mobileState ? "primary" : undefined}
+        data-testid={"form-search"}
         paddingLagrgePlatform="defualt"
         onSubmit={sumbit}
         {...args}

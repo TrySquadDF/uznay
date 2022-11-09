@@ -6,8 +6,6 @@ import { ClMainBlock } from "../Grid/Catalog";
 
 import OtherList from "../List/components/OtherList/OtherList";
 
-// По мере разработки в случае необходимости можоно избавить от компонента CARD ./components/Card это тестовый экзепляр
-
 const MainInnerBlock = () => {
   return (
     <Grid>

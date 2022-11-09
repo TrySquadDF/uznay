@@ -5,7 +5,7 @@ import {
 } from "@/types/responsTypes";
 import { flow, types } from "mobx-state-tree";
 import { apiResult, apiError } from "./apiModels";
-import { getDataFromServer } from "@/utils/serverRequest/serverRequest";
+import { getDataFromServer } from "../utils/serverRequest/serverRequest";
 import { everything, topHeadlines } from "@/types/apiParamsTypes";
 
 const fetchArticlesToServer = async (
@@ -59,7 +59,12 @@ const API = types
         self.loading = false;
       } catch (e) {
         self.loading = false;
-        self.error = { ...(e as ResponsError) };
+
+        self.error = e
+          ? Object.keys(e).length === 0
+            ? null
+            : { ...(e as ResponsError) }
+          : null;
       }
     }),
   }));

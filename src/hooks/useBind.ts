@@ -1,11 +1,21 @@
-import { ReactNode, RefObject } from "react";
+import React, { ReactNode, RefObject, useEffect, useState } from "react";
 import { useKeyboard } from "./useKeyboard";
 
-/**  Фокуисруетется на элементе по привязки клавиши.
+/**  Фокусирует на элементе по привязки клавиши.`Return`: булевое значение указывающие активен ли фокус.
  * @param ref Ссылка на элемент.
  * @param key Код клавиши.
  */
 export function useBindFocus(ref: RefObject<HTMLInputElement>, key: string) {
+  const [state, setState] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (document.activeElement === ref.current) {
+      setState(true);
+    } else {
+      setState(false);
+    }
+  }, [document.activeElement]);
+
   useKeyboard("keyup", (ev) => {
     if (
       ev.code === key &&
@@ -15,6 +25,8 @@ export function useBindFocus(ref: RefObject<HTMLInputElement>, key: string) {
       ref.current.focus();
     }
   });
+
+  return state;
 }
 
 /**  Принимает параметром Element который нужно привязать и возвращает ссылку на этот элемент

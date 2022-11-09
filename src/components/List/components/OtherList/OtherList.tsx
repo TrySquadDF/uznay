@@ -1,13 +1,13 @@
 import { observer } from "mobx-react-lite";
 import { memo } from "react";
 
-import { CardMin, CardBig } from "@/components/Card";
-import { Heading } from "@/components/UI/Heading";
-import { Loader } from "@/components/UI/Loader";
-import { Box } from "@/components/UI/Box";
-import { Hr } from "@/components/UI/Hr";
+import { CardMin, CardBig } from "../../../Card";
+import { Heading } from "../../..//UI/Heading";
+import { Loader } from "../../..//UI/Loader";
+import { Box } from "../../../UI/Box";
+import { Hr } from "../../../UI/Hr";
 
-import useStore from "@/hooks/useStore";
+import useStore from "../../../../hooks/useStore";
 
 //TO DO: Привести в порядок документ разбить на блоки и сдлеать отделный комнонент для отображения даты.
 //TO DO: Описать типы Respons. Прикурить скелетоню

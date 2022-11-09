@@ -10,8 +10,8 @@ export const useKeyboard = (
   event: "keyup" | "keydown" | "keypress",
   eventHandler?: (ev: KeyboardEvent) => void
 ): void => {
-  const defualtEventHandler = () => {
-    console.log("[useBind eventHandler]");
+  const defualtEventHandler = (ev: KeyboardEvent) => {
+    console.log({ "[useKeyboard eventHandler]": ev });
   };
 
   useEffect(() => {
@@ -19,9 +19,9 @@ export const useKeyboard = (
       event,
       (e) => {
         if (eventHandler) {
-          eventHandler(e);
+          return eventHandler(e);
         } else {
-          defualtEventHandler();
+          defualtEventHandler(e);
         }
       },
       true
@@ -31,9 +31,9 @@ export const useKeyboard = (
       event,
       (e) => {
         if (eventHandler) {
-          eventHandler(e);
+          return eventHandler(e);
         } else {
-          defualtEventHandler();
+          defualtEventHandler(e);
         }
       },
       true

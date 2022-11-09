@@ -1,3 +1,4 @@
+import React from "react";
 import { CssProperty } from "@/types/componentsTypes";
 import { styled } from "@stitches/react";
 
