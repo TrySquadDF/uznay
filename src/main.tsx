@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createContext, lazy, Suspense } from "react";
 
 import "./index.css";
+import { model, StoreContext } from "./hooks/useStore";
 
 const ErrorPage = lazy(() => import("./page/error"));
 const Search = lazy(() => import("./page/search"));
@@ -32,9 +33,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-const model = store.create();
-export const StoreContext = createContext(model);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <StoreContext.Provider value={model}>

@@ -5,26 +5,8 @@ import {
 } from "@/types/responsTypes";
 import { flow, types } from "mobx-state-tree";
 import { apiResult, apiError } from "./apiModels";
-import { getDataFromServer } from "../utils/serverRequest/serverRequest";
 import { everything, topHeadlines } from "@/types/apiParamsTypes";
-
-const fetchArticlesToServer = async (
-  type: "/v2/top-headlines" | "/v2/everything",
-  params:
-    | ({ q: string } & Partial<everythingQuery>)
-    | Partial<topHeadlinesQuery>
-) => {
-  if (type === "/v2/everything") {
-    const { req } = new getDataFromServer(
-      "/v2/everything",
-      params as { q: string } & Partial<everythingQuery>
-    );
-    return req;
-  } else {
-    const { req } = new getDataFromServer("/v2/top-headlines", params);
-    return req;
-  }
-};
+import { fetchArticlesToServer } from "@/utils/fetchArticlesToServer/fetchArticlesToServer";
 
 // TODO: test api error
 

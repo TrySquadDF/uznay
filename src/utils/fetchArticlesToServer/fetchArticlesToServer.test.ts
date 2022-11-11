@@ -1,17 +1,17 @@
-import { getDataFromServer } from "./serverRequest";
+import { fetchArticlesToServer } from "./fetchArticlesToServer";
 
-describe("serverRequest", async () => {
+describe("fetchArticlesToServer", async () => {
   beforeEach(() => {
     //@ts-ignore
     fetch.resetMocks();
   });
 
-  test("Запрос Замокан", async () => {
+  it("Work ? ", async () => {
     //@ts-ignore
     fetch.mockResponseOnce(
       JSON.stringify({
         status: "ok",
-        totalResults: 30,
+        totalResults: 2,
         articles: [
           {
             source: {
@@ -50,15 +50,8 @@ describe("serverRequest", async () => {
       })
     );
 
-    const { req } = new getDataFromServer("/v2/everything", {
-      q: "Chin",
-    });
+    const data = await fetchArticlesToServer("/v2/everything", { q: "Rule" });
 
-    const { status } = await req;
-
-    //@ts-ignore
-    expect(fetch.mock.calls.at(-1).at(-1)).toBe(
-      "https://newsapi.org/v2/everything?q=Chin&apiKey=278f5c46b752440dacaa560a656f6bdb"
-    );
+    expect(data["status"] === "ok").toBeTruthy();
   });
 });
