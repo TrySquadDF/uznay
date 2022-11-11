@@ -3,10 +3,10 @@ import {
   ResponsError,
   topHeadlinesQuery,
 } from "@/types/responsTypes";
-import { flow, types } from "mobx-state-tree";
+import { flow, getParent, types } from "mobx-state-tree";
 import { apiResult, apiError } from "./apiModels";
 import { everything, topHeadlines } from "@/types/apiParamsTypes";
-import { fetchArticlesToServer } from "@/utils/fetchArticlesToServer/fetchArticlesToServer";
+import { fetchArticlesToServer } from "../utils/fetchArticlesToServer/fetchArticlesToServer";
 
 // TODO: test api error
 
@@ -36,7 +36,12 @@ const API = types
 
         self.loading = true;
         // @ts-ignore
-        const data = yield fetchArticlesToServer(type, option);
+        const env = getParent(self).fetchHnalder();
+
+        const data = Boolean(env)
+          ? //@ts-ignore
+            env
+          : yield fetchArticlesToServer(type, option);
         self.result = callback ? callback({ ...data }) : { ...data };
         self.loading = false;
       } catch (e) {
